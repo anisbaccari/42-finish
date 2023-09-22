@@ -1,0 +1,97 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   split.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abaccari <abaccari@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/31 16:16:49 by abaccari          #+#    #+#             */
+/*   Updated: 2023/09/22 11:53:25 by abaccari         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push.h"
+
+int	count_word(char const *s, char sep)
+{
+	int	count;
+
+	count = 0;
+	if (!*s)
+		return (0);
+	while (*s)
+	{
+		while (*s && (*s == sep))
+			s++;
+		if (*s)
+			count++;
+		while (*s && (*s != sep))
+			s++;
+	}
+	return (count);
+}
+
+char	*get_word(char const *s, char c)
+{
+	int		i;
+	int		size;
+	char	*word;
+
+	i = 0;
+	size = 0;
+	while (s[size] && s[size] != c)
+		size++;
+	word = (char *)ft_calloc(sizeof(char *), (size + 1));
+	if (!word)
+	{
+		free(word);
+		return ("Error\n");
+	}
+	while (s[i] && i < size)
+	{
+		word[i] = s[i];
+		i++;
+	}
+	word[i] = '\0';
+	return (word);
+}
+
+char	**insert_to(char **tab, char const *s, char c)
+{
+	int	i;
+
+	i = 0;
+	if (!tab)
+		return (NULL);
+	while (*s)
+	{
+		while (*s && *s == c)
+			s++;
+		if (*s)
+		{
+			tab[i] = get_word(s, c);
+			i++;
+		}
+		while (*s && *s != c)
+			s++;
+	}
+	return (tab);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**tab;
+	int		size;
+
+	size = 0;
+	size = count_word(s, c);
+	tab = (char **)ft_calloc(sizeof(char *), (size + 1));
+	if (!tab)
+	{
+		free(tab);
+		return (NULL);
+	}
+	tab = insert_to(tab, s, c);
+	tab[size] = NULL;
+	return (tab);
+}
