@@ -6,7 +6,7 @@
 /*   By: abaccari <abaccari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 16:15:54 by abaccari          #+#    #+#             */
-/*   Updated: 2023/09/20 14:11:32 by abaccari         ###   ########.fr       */
+/*   Updated: 2023/10/02 14:02:37 by abaccari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 	{
-		ft_error(&big); 
+		write(1, "Error", 5);
+		write(1, "\n", 1);
 		return (0); 
 	}
 	init_struct(&big, argc, argv); 

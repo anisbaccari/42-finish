@@ -6,7 +6,7 @@
 /*   By: abaccari <abaccari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 16:17:24 by abaccari          #+#    #+#             */
-/*   Updated: 2023/09/22 11:53:38 by abaccari         ###   ########.fr       */
+/*   Updated: 2023/10/03 14:23:14 by abaccari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_error(t_bigstack *b)
 	i = 0;
 	write(1, "Error", 5);
 	write(1, "\n", 1);
-	if (*b->argv)
+	if (b->argv)
 	{
 		if (b->splited == 0)
 		{
@@ -29,8 +29,8 @@ void	ft_error(t_bigstack *b)
 				i++;
 			}
 		}
+		free(b->argv);
 	}
-	free(b->argv);
 	if (b->a)
 		ft_clear_stack(&b->a);
 	if (b->b)

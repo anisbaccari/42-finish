@@ -6,7 +6,7 @@
 /*   By: abaccari <abaccari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 16:17:01 by abaccari          #+#    #+#             */
-/*   Updated: 2023/09/22 11:57:47 by abaccari         ###   ########.fr       */
+/*   Updated: 2023/10/02 15:59:19 by abaccari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ void	multi_arg(t_bigstack *b, char **argv, int argc)
 	while (argv[i])
 	{
 		b->argv[i - 1] = argv[i];
-		if (!b->argv[i - 1])
-			ft_error(b);
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: abaccari <abaccari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 16:17:20 by abaccari          #+#    #+#             */
-/*   Updated: 2023/09/20 13:02:33 by abaccari         ###   ########.fr       */
+/*   Updated: 2023/09/23 16:03:48 by abaccari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	init_sort(t_bigstack *b)
 	{
 		if (stack_size(&b->a) == 2)
 		{
-			ft_pa(&b->a, &b->b);
+			ft_ra(&b->a);
 			return ;
 		}
 		else if (stack_size(&b->a) == 3)

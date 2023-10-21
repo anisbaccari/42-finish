@@ -6,7 +6,7 @@
 /*   By: abaccari <abaccari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 15:20:08 by abaccari          #+#    #+#             */
-/*   Updated: 2023/09/20 13:00:50 by abaccari         ###   ########.fr       */
+/*   Updated: 2023/10/02 15:55:56 by abaccari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	init_stack(t_bigstack *big)
 		a = ft_calloc(sizeof(t_stack), 1);
 		if (!a)
 		{
-			free(a);
+			ft_error(big);
 			return ;
 		}
 		a->next = NULL;

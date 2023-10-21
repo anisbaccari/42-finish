@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaccari <abaccari@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anis <anis@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 16:16:49 by abaccari          #+#    #+#             */
-/*   Updated: 2023/09/22 11:53:25 by abaccari         ###   ########.fr       */
+/*   Updated: 2023/10/18 18:05:42 by anis             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,7 @@ char	*get_word(char const *s, char c)
 	word = (char *)ft_calloc(sizeof(char *), (size + 1));
 	if (!word)
 	{
-		free(word);
-		return ("Error\n");
+		return (NULL);
 	}
 	while (s[i] && i < size)
 	{
@@ -70,6 +69,13 @@ char	**insert_to(char **tab, char const *s, char c)
 		if (*s)
 		{
 			tab[i] = get_word(s, c);
+			if (!tab[i])
+			{
+				while (*tab)
+					free(tab++);
+				free(tab);
+				return (NULL);
+			}
 			i++;
 		}
 		while (*s && *s != c)
@@ -87,10 +93,7 @@ char	**ft_split(char const *s, char c)
 	size = count_word(s, c);
 	tab = (char **)ft_calloc(sizeof(char *), (size + 1));
 	if (!tab)
-	{
-		free(tab);
 		return (NULL);
-	}
 	tab = insert_to(tab, s, c);
 	tab[size] = NULL;
 	return (tab);

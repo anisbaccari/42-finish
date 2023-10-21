@@ -11,28 +11,25 @@ LEAKS = -fsanitize=address
 
 NAME = push_swap
 
-LIBFT = include/libft/libft.a
 
-DEPENDANCE = make -C include/libft
 
-COMPILE = $(CC) $(CFLAGS) -o $(NAME) -Iinclude/libft -Linclude/libft -lft
+
+
+COMPILE = $(CC) $(CFLAGS) -o $(NAME) 
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJ)
+$(NAME): $(OBJ)
 	$(COMPILE) $(OBJ)
 
-$(LIBFT):
-	$(DEPENDANCE)
 
 clean:
 	rm -rf $(OBJ)
-	make -C include/libft clean
+
 
 fclean: clean
 	rm -rf $(NAME)
-	make -C include/libft fclean
-
+	
 exe: $(NAME)
 	./$(NAME)
 

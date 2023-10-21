@@ -6,14 +6,12 @@
 /*   By: abaccari <abaccari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 16:19:06 by abaccari          #+#    #+#             */
-/*   Updated: 2023/09/22 13:46:20 by abaccari         ###   ########.fr       */
+/*   Updated: 2023/10/02 16:37:02 by abaccari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_H
 # define PUSH_H
-# include "include/libft/libft.h"
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
