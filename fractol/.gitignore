@@ -1,0 +1,8 @@
+*.dSYM
+a.out
+*.vscode
+*.DS_Store
+*.o
+norm
+*.a
+fractol
