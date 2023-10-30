@@ -6,3 +6,4 @@
 *.out
 *.code-workspace
 *.swp
+main.c
